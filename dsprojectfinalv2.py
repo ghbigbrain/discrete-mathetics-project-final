@@ -71,6 +71,10 @@ def compute_distance(c1, c2, weight_type):
         q3 = math.cos(lat1 + lat2)
         return int(RRR * math.acos(0.5 * ((1.0 + q1) * q2 - (1.0 - q1) * q3)) + 1.0)
         
+    elif weight_type == "CEIL_2D":
+        # Chuẩn CEIL_2D (Dùng riêng cho các file như dsj1000)
+        return int(math.ceil(math.sqrt((x1 - x2)**2 + (y1 - y2)**2)))
+
     return 0
 
 def load_tsp_dataset(filepath):
